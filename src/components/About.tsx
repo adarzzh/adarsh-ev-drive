@@ -1,4 +1,5 @@
 import { Zap, Target, Users, CheckCircle } from 'lucide-react';
+import profileImage from '@/assets/adarsh-profile.png';
 
 const About = () => {
   const highlights = [
@@ -42,49 +43,64 @@ const About = () => {
           </div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Bio */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                EV Infrastructure Professional
-              </h3>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  As an EV Charger Project Engineer with Tata Power, I specialize in 
-                  coordinating the installation and deployment of electric vehicle 
-                  charging infrastructure across Kerala. My role encompasses project 
-                  planning, site coordination, and stakeholder management.
-                </p>
-                <p>
-                  I leverage data analytics tools like Excel, Python, and Power BI 
-                  to optimize project workflows, track installation progress, and 
-                  provide comprehensive reporting to clients and management teams.
-                </p>
-                <p>
-                  My focus is on ensuring seamless EV charging infrastructure 
-                  deployment while maintaining the highest standards of quality 
-                  and client satisfaction.
-                </p>
+          <div className="grid lg:grid-cols-3 gap-12 items-start mb-16">
+            {/* Profile Photo */}
+            <div className="lg:col-span-1 flex justify-center lg:justify-start">
+              <div className="relative">
+                <img 
+                  src={profileImage} 
+                  alt="Adarsh - EV Charger Project Engineer"
+                  className="w-64 h-64 lg:w-80 lg:h-80 rounded-2xl shadow-elegant object-cover transition-smooth hover:shadow-glow"
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-primary opacity-10"></div>
               </div>
             </div>
 
-            {/* Highlights */}
-            <div className="space-y-6">
-              {highlights.map((highlight, index) => (
-                <div key={index} className="flex items-start space-x-4 p-4 rounded-lg gradient-card shadow-card transition-smooth hover:shadow-elegant">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                    {highlight.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">
-                      {highlight.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {highlight.description}
-                    </p>
-                  </div>
+            {/* Bio & Highlights */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Bio */}
+              <div>
+                <h3 className="text-2xl font-semibold mb-6 text-foreground">
+                  EV Infrastructure Professional
+                </h3>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    As an EV Charger Project Engineer with Tata Power, I specialize in 
+                    coordinating the installation and deployment of electric vehicle 
+                    charging infrastructure across Kerala. My role encompasses project 
+                    planning, site coordination, and stakeholder management.
+                  </p>
+                  <p>
+                    I leverage data analytics tools like Excel, Python, and Power BI 
+                    to optimize project workflows, track installation progress, and 
+                    provide comprehensive reporting to clients and management teams.
+                  </p>
+                  <p>
+                    My focus is on ensuring seamless EV charging infrastructure 
+                    deployment while maintaining the highest standards of quality 
+                    and client satisfaction.
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              {/* Highlights */}
+              <div className="space-y-6">
+                {highlights.map((highlight, index) => (
+                  <div key={index} className="flex items-start space-x-4 p-4 rounded-lg gradient-card shadow-card transition-smooth hover:shadow-elegant">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                      {highlight.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">
+                        {highlight.title}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {highlight.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
