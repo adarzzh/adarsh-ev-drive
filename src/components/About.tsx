@@ -1,5 +1,4 @@
 import { Zap, Target, Users, CheckCircle } from 'lucide-react';
-import profileImage from '@/assets/adarsh-real-profile.png';
 
 const About = () => {
   const highlights = [
@@ -48,7 +47,7 @@ const About = () => {
             <div className="lg:col-span-1 flex justify-center lg:justify-start">
               <div className="relative">
                 <img 
-                  src={profileImage} 
+                  src="/lovable-uploads/abdef46b-a6d6-4ce1-b684-a56db7d8d84b.png" 
                   alt="Adarsh - EV Charger Project Engineer"
                   className="w-64 h-64 lg:w-80 lg:h-80 rounded-2xl shadow-elegant object-cover transition-smooth hover:shadow-glow"
                 />
