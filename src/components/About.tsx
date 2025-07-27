@@ -1,5 +1,5 @@
 import { Zap, Target, Users, CheckCircle } from 'lucide-react';
-import profileImage from '@/assets/adarsh-profile.png';
+import profileImage from '@/assets/adarsh-real-profile.png';
 
 const About = () => {
   const highlights = [
