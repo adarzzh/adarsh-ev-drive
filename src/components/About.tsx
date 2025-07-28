@@ -47,7 +47,7 @@ const About = () => {
             <div className="lg:col-span-1 flex justify-center lg:justify-start">
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/abdef46b-a6d6-4ce1-b684-a56db7d8d84b.png" 
+                  src="/lovable-uploads/d0918a35-e703-4429-8c10-687c1b1857b4.png" 
                   alt="Adarsh - EV Charger Project Engineer"
                   className="w-64 h-64 lg:w-80 lg:h-80 rounded-2xl shadow-elegant object-cover transition-smooth hover:shadow-glow"
                 />
