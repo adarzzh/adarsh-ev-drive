@@ -1,12 +1,28 @@
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X, Palette, Check } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+
+  const themes = [
+    { id: 'light', name: 'Light', icon: Sun },
+    { id: 'dark', name: 'Dark', icon: Moon },
+    { id: 'system', name: 'System', icon: Palette },
+    { id: 'blue', name: 'Ocean Blue', icon: Palette },
+    { id: 'green', name: 'Nature Green', icon: Palette },
+    { id: 'purple', name: 'Royal Purple', icon: Palette },
+    { id: 'orange', name: 'Sunset Orange', icon: Palette },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,18 +70,38 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Theme Toggle & Mobile Menu */}
+          {/* Theme Selector & Mobile Menu */}
           <div className="flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="transition-smooth"
-            >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="transition-smooth"
+                >
+                  <Palette className="h-5 w-5" />
+                  <span className="sr-only">Change theme</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48 bg-background border border-border shadow-card">
+                {themes.map((themeOption) => {
+                  const Icon = themeOption.icon;
+                  return (
+                    <DropdownMenuItem
+                      key={themeOption.id}
+                      onClick={() => setTheme(themeOption.id)}
+                      className="flex items-center justify-between cursor-pointer hover:bg-muted"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Icon className="h-4 w-4" />
+                        <span>{themeOption.name}</span>
+                      </div>
+                      {theme === themeOption.id && <Check className="h-4 w-4 text-primary" />}
+                    </DropdownMenuItem>
+                  );
+                })}
+              </DropdownMenuContent>
+            </DropdownMenu>
             
             {/* Mobile menu button */}
             <div className="md:hidden">
