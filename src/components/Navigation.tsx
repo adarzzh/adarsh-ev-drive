@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X, Palette, Check } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { useTheme } from '@/components/ThemeProvider';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -15,13 +15,13 @@ const Navigation = () => {
   const { theme, setTheme } = useTheme();
 
   const themes = [
-    { id: 'light', name: 'Light', icon: Sun },
-    { id: 'dark', name: 'Dark', icon: Moon },
-    { id: 'system', name: 'System', icon: Palette },
-    { id: 'blue', name: 'Ocean Blue', icon: Palette },
-    { id: 'green', name: 'Nature Green', icon: Palette },
-    { id: 'purple', name: 'Royal Purple', icon: Palette },
-    { id: 'orange', name: 'Sunset Orange', icon: Palette },
+    { id: 'light' as const, name: 'Light', icon: Sun },
+    { id: 'dark' as const, name: 'Dark', icon: Moon },
+    { id: 'system' as const, name: 'System', icon: Palette },
+    { id: 'blue' as const, name: 'Ocean Blue', icon: Palette },
+    { id: 'green' as const, name: 'Nature Green', icon: Palette },
+    { id: 'purple' as const, name: 'Royal Purple', icon: Palette },
+    { id: 'orange' as const, name: 'Sunset Orange', icon: Palette },
   ];
 
   useEffect(() => {
